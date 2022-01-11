@@ -14,6 +14,34 @@ docker volume prune --filter "label!=keep"
 http://10.2.100.2:50070
 http://10.2.100.2:8021/
 http://10.2.100.2:8022/
+
+docker exec namenode hdfs dfs -mkdir /input \
+&& docker exec namenode hdfs dfs -put /input_files/GoneWiththeWind.txt /input
+
+docker exec -it master spark-shell --executor-memory 512M --total-executor-cores 2
+
+sc.textFile("hdfs://namenode:8020/input/GoneWiththeWind.txt").flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _).sortBy(_._2,false).take(10).foreach(println)
+
+wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/sparkwordcount-1.0-SNAPSHOT.jar
+docker exec -it master spark-submit \
+--class com.bolingcavalry.sparkwordcount.WordCount \
+--executor-memory 512m \
+--total-executor-cores 2 \
+/root/jars/sparkwordcount-1.0-SNAPSHOT.jar \
+namenode \
+8020 \
+GoneWiththeWind.txt
+
+docker exec namenode hdfs dfs -cat /output/20190209173023/part-00000
+
+wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/docker-compose.yml \
+&& wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/hadoop.env \
+&& docker-compose up -d
+
+wget https://raw.githubusercontent.com/zq2599/blog_demos/master/files/sparkcluster/docker-compose.yml \
+&& wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/hadoop.env \
+&& docker-compose up -d
+
 ```
 
 ```shell
