@@ -5,6 +5,15 @@ sudo docker-compose up
 sudo docker-compose up -d
 
 docker-compose logs -f
+
+docker volume ls
+docker volume rm volume_name volume_name
+docker volume prune
+docker volume prune --filter "label!=keep"
+
+http://10.2.100.2:50070
+http://10.2.100.2:8021/
+http://10.2.100.2:8022/
 ```
 
 ```shell
