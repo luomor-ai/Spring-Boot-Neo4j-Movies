@@ -1,4 +1,10 @@
 ```shell
+wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/docker-compose.yml \
+&& wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/hadoop.env \
+&& docker-compose up -d
+```
+
+```shell
 docker pull centos:centos7
 docker images
 docker run --name centos7 -itd centos:centos7 /bin/bash
@@ -168,5 +174,8 @@ cd /usr/local/hadoop/hadoop-2.10.0/share/hadoop/mapreduce/
 hadoop jar hadoop-mapreduce-examples-2.10.0.jar wordcount /test.txt /out
 hdfs dfs -ls /out
 hdfs dfs -cat /out/part-r-00000
+```
 
+```
+docker spark
 ```
