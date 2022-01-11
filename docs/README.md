@@ -47,6 +47,11 @@ namenode \
 GoneWiththeWind.txt
 
 docker exec namenode hdfs dfs -cat /output/20190209173023/part-00000
+docker exec namenode hdfs dfs -cat /output/20220111150514/part-00000
+(4,a)
+(1,d)
+(1,b)
+(1,c)
 
 wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/docker-compose.yml \
 && wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/hadoop.env \
