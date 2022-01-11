@@ -179,3 +179,33 @@ hdfs dfs -cat /out/part-r-00000
 ```
 docker spark
 ```
+
+```
+docker search spark
+NAME                               DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+sequenceiq/spark                   An easy way to try Spark                        453                  [OK]
+gettyimages/spark                  A debian:jessie based Spark container           131                  [OK]
+mesosphere/spark                   DCOS Spark                                      112
+singularities/spark                Apache Spark                                    62                   [OK]
+bde2020/spark-master               Apache Spark master for a standalone cluster    49                   [OK]
+bde2020/spark-worker               Apache Spark worker for a standalone cluster    27                   [OK]
+bde2020/spark-base                 Apache Spark base image                         21                   [OK]
+shopkeep/spark                     Docker container with Spark, Scala, SBT, and…   9                    [OK]
+bde2020/spark-submit               Apache Spark submit for a standalone cluster    8                    [OK]
+gurvin/spark-jupyter-notebook      Jupyter Notebook to be used with Spark in Ku…   6                    [OK]
+sparkserver/spark-server           The spark-server is a Node.js REST interface…   4                    [OK]
+gradiant/spark                     Spark project                                   3                    [OK]
+sparkpos/docker-nginx-php          sparkpos nginx php                              1                    [OK]
+adobeapiplatform/spark             Spark executor images                           1
+jaegertracing/spark-dependencies   Spark job for dependency links                  0                    [OK]
+webgames/spark                     spark                                           0                    [OK]
+amorphic/sparkcc-web               SparkCC Website                                 0
+telefonica/spark-py-submit         This image contains the spark-submit binary,…   0
+amorphic/sparkcc-hq                SparkCC HQ                                      0
+duli/spark-mesos                   The docker image for spark jobs to run on a …   0
+telefonica/spark-submit            This image contains the spark-submit binary,…   0
+telefonica/spark-py                This image contains the Spark-py binaries, c…   0
+mesosphere/spark-dev               spark testing                                   0
+quidops/spark-cloud                Spark image including hadoop-cloud libs         0
+jeffharwell/spark                  Spark docker container - upgrade for gcr.io/…   0                    [OK]
+```
