@@ -219,3 +219,107 @@ sudo docker exec -it <container_name> /bin/bash
 /usr/local/spark/bin/spark-submit --master spark://master:7077 --class org.apache.spark.examples.SparkPi /usr/local/spark/lib/spark-examples-1.6.0-hadoop2.6.0.jar 1000
 停止spark集群
 sudo docker-compose down
+
+
+
+docker搭建Spark
+1.docker的安装请看我的这篇文章:https://blog.csdn.net/qq_33517844/article/details/88146082
+
+2.docker编排工具docker-compose安装
+
+2.1 使用官网指导方式安装（不推荐）https://docs.docker.com/compose/install/
+
+2.2使用国内镜像源安装(推荐)
+
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+测试是否安装成功
+
+docker-compose --version
+出现
+
+docker-compose version 1.22.0, build f46880fe
+就安装成功了
+
+3.安装docker的spark镜像singularities/spark:2.2
+
+docker-spark-2.1.0]# docker pull singularities/spark
+查看镜像是否安装成功
+
+docker image ls
+创建docker-compose.yml
+
+[root@localhost home]# mkdir singularitiesCR
+[root@localhost home]# cd singularitiesCR
+[root@localhost singularitiesCR]# touch docker-compose.yml
+[root@localhost singularitiesCR]# vim docker-compose.yml
+编辑
+
+version: "2"
+
+services:
+master:
+image: singularities/spark
+command: start-spark master
+hostname: master
+ports:
+- "6066:6066"
+- "7070:7070"
+- "8080:8080"
+- "50070:50070"
+worker:
+image: singularities/spark
+command: start-spark worker master
+environment:
+SPARK_WORKER_CORES: 1
+SPARK_WORKER_MEMORY: 2g
+links:
+- master
+在刚刚建立docker-compose.yml文件目录下面使用命令
+
+[root@localhost singularitiesCR]# docker-compose up -d
+Creating singularitiescr_master_1 ... done
+Creating singularitiescr_worker_1 ... done
+查看容器运行
+
+[root@localhost singularitiesCR]# docker-compose ps
+Name                      Command            State                   Ports
+-----------------------------------------------------------------------------------------------------
+singularitiescr_master_1   start-spark master          Up      10020/tcp, 13562/tcp, 14000/tcp,      
+19888/tcp, 50010/tcp, 50020/tcp,      
+0.0.0.0:50070->50070/tcp, 50075/tcp,  
+50090/tcp, 50470/tcp, 50475/tcp,      
+0.0.0.0:6066->6066/tcp,               
+0.0.0.0:7070->7070/tcp, 7077/tcp,     
+8020/tcp, 0.0.0.0:8080->8080/tcp,     
+8081/tcp, 9000/tcp                    
+singularitiescr_worker_1   start-spark worker master   Up      10020/tcp, 13562/tcp, 14000/tcp,      
+19888/tcp, 50010/tcp, 50020/tcp,      
+50070/tcp, 50075/tcp, 50090/tcp,      
+50470/tcp, 50475/tcp, 6066/tcp,       
+7077/tcp, 8020/tcp, 8080/tcp,         
+8081/tcp, 9000/tcp                    
+[root@localhost singularitiesCR]#
+查看本机IP
+
+[root@localhost singularitiesCR]# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+inet 192.168.1.133  netmask 255.255.255.0  broadcast 192.168.1.255
+inet6 fe80::6841:cba4:a8ab:6691  prefixlen 64  scopeid 0x20<link>
+ether 00:0c:29:53:c7:3e  txqueuelen 1000  (Ethernet)
+RX packets 1027788  bytes 1507409925 (1.4 GiB)
+RX errors 0  dropped 0  overruns 0  frame 0
+TX packets 459275  bytes 36319898 (34.6 MiB)
+TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+结果
+
+
+
+
+
+停止容器
+
+[root@localhost singularitiesCR]# docker-compose stop
+删除容器
+
+[root@localhost singularitiesCR]# docker-compose rm
