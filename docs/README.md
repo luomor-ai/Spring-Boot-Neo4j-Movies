@@ -11,9 +11,21 @@ docker volume rm volume_name volume_name
 docker volume prune
 docker volume prune --filter "label!=keep"
 
+local               docker_hadoop_datanode1
+local               docker_hadoop_datanode2
+local               docker_hadoop_datanode3
+local               docker_hadoop_historyserver
+local               docker_hadoop_namenode
+
+docker volume rm docker_hadoop_datanode1 docker_hadoop_datanode2 docker_hadoop_datanode3 docker_hadoop_historyserver docker_hadoop_namenode
+
 http://10.2.100.2:50070
 http://10.2.100.2:8021/
 http://10.2.100.2:8022/
+
+http://localhost:50070
+http://localhost:8021/
+http://localhost:8022/
 
 docker exec namenode hdfs dfs -mkdir /input \
 && docker exec namenode hdfs dfs -put /input_files/GoneWiththeWind.txt /input
