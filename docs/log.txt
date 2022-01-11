@@ -91,3 +91,23 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.    602.9 avail Mem
 2281029 root      20   0  107700   1020      0 S  23.9   0.0   1:50.65 containerd-shim
 2848107 root      20   0   18.0g 399100      0 S  21.5   0.6   6:27.22 java
 2853495 root      20   0   29556   4472      0 S  21.5   0.0   0:00.70 ksmtuned
+
+docker exec -it master spark-shell --executor-memory 512M --total-executor-cores 2
+2022-01-11 16:21:25 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Spark context Web UI available at http://localhost:4040
+Spark context available as 'sc' (master = spark://master:7077, app id = app-20220111162129-0002).
+Spark session available as 'spark'.
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.3.0
+      /_/
+
+Using Scala version 2.11.8 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_131)
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala>

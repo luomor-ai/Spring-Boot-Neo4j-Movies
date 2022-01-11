@@ -235,6 +235,7 @@ public class CoreProcessor {
          * SparkConf必须设置appname和master，否则会报错
          * spark.master   用于设置部署模式
          * local[*] == 本地运行模式[也可以是集群的形式]，如果需要多个线程执行，可以设置为local[2],表示2个线程 ，*表示多个
+         * spark://master:7077
          * spark.app.name 用于指定应用的程序名称  ==
          */
 
@@ -247,7 +248,9 @@ public class CoreProcessor {
          * 1763年4月7日逝世。
          * 贝叶斯在数学方面主要研究概率论 == 贝叶斯公式是概率论中较为重要的公式
          */
-        SparkConf conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("local[*]");
+        SparkConf conf = null;
+        //conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("local[*]");
+        conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("spark://localhost:7077");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         /**
