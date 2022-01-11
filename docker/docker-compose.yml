@@ -1,7 +1,7 @@
 version: "2.2"
 services:
   namenode:
-    image: bde2020/hadoop-namenode:1.1.0-hadoop2.7.1-java8 # 2.0.0-hadoop3.1.1-java8
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.1.1-java8 # 2.0.0-hadoop3.1.1-java8
     container_name: namenode
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
@@ -14,7 +14,7 @@ services:
       - 50070:50070
   
   resourcemanager:
-    image: bde2020/hadoop-resourcemanager:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.1-java8
     container_name: resourcemanager
     depends_on:
       - namenode
@@ -24,7 +24,7 @@ services:
       - ./hadoop.env
   
   historyserver:
-    image: bde2020/hadoop-historyserver:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.1.1-java8
     container_name: historyserver
     depends_on:
       - namenode
@@ -36,7 +36,7 @@ services:
       - ./hadoop.env
   
   nodemanager1:
-    image: bde2020/hadoop-nodemanager:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.1-java8
     container_name: nodemanager1
     depends_on:
       - namenode
@@ -46,7 +46,7 @@ services:
       - ./hadoop.env
   
   datanode1:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
     container_name: datanode1
     depends_on:
       - namenode
@@ -56,7 +56,7 @@ services:
       - ./hadoop.env
   
   datanode2:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
     container_name: datanode2
     depends_on:
       - namenode
@@ -66,7 +66,7 @@ services:
       - ./hadoop.env
   
   datanode3:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.7.1-java8
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.1-java8
     container_name: datanode3
     depends_on:
       - namenode
@@ -76,7 +76,7 @@ services:
       - ./hadoop.env
 
   master:
-    image: gettyimages/spark:2.3.0-hadoop-2.8
+    image: gettyimages/spark:2.4.0-hadoop-3.0
     container_name: master
     command: bin/spark-class org.apache.spark.deploy.master.Master -h master
     hostname: master
@@ -98,14 +98,14 @@ services:
       - 4040:4040
       - 6066:6066
       - 7077:7077
-      - 8080:8080
+      - 8021:8080
     volumes:
       - ./conf/master:/conf
       - ./data:/tmp/data
       - ./jars:/root/jars
 
   worker:
-    image: gettyimages/spark:2.3.0-hadoop-2.8
+    image: gettyimages/spark:2.4.0-hadoop-3.0
     container_name: worker
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
     hostname: worker
@@ -125,7 +125,7 @@ services:
       - 7015
       - 8881
     ports:
-      - 8081:8081
+      - 8022:8081
     volumes:
       - ./conf/worker:/conf
       - ./data:/tmp/data
