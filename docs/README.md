@@ -1,0 +1,172 @@
+```shell
+docker pull centos:centos7
+docker images
+docker run --name centos7 -itd centos:centos7 /bin/bash
+docker attach centos7
+yum install -y net-tools which openssh-clients openssh-server iproute.x86_64 wget passwd vim
+
+passwd
+sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+mkdir /var/run/sshd
+systemctl start sshd.service
+上述启动的时候会报错，不用担心，正常exit即可。
+exit
+
+docker commit centos7 my-ssh-centos7
+docker run -tid --privileged  --name test my-ssh-centos /usr/sbin/init
+docker exec -it my-ssh-centos /bin/bash
+cd ~;ssh-keygen -t rsa -P '' -f ~/.ssh/id_dsa;cd .ssh;cat id_dsa.pub >> authorized_keys
+
+mkdir /var/software
+cd /var/software
+wget https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.10.0/hadoop-2.10.0.tar.gz
+wget https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.7/spark-2.4.7-bin-without-hadoop.tgz
+wget https://downloads.lightbend.com/scala/2.12.3/scala-2.12.3.tgz
+
+docker cp jdk-8u261-linux-x64.tar.gz 834fed0e4a91:/var/software
+mkdir /usr/local/java/
+tar -zxvf jdk-8u261-linux-x64.tar.gz -C /usr/local/java/
+
+mkdir /usr/local/scala/
+tar -zxvf scala-2.12.3.tgz -C /usr/local/scala/
+
+mkdir /usr/local/hadoop/
+tar -zxvf hadoop-2.10.0.tar.gz  -C /usr/local/hadoop/  #解压文件至安装目录
+
+mkdir /usr/local/spark/
+tar -zxvf spark-2.4.7-bin-without-hadoop.tgz  -C /usr/local/spark/  #解压文件至安装目录
+
+#设置环境变量
+# ~/.bashrc中添加
+# JAVA
+export JAVA_HOME=/usr/local/java/jdk1.8.0_261
+export JRE_HOME=$JAVA_HOME/jre
+export PATH=$JAVA_HOME/bin:$PATH:$JRE_HOME/bin
+
+# scala
+export SCALA_HOME=/usr/local/scala/scala-2.12.3
+export PATH=$PATH:$SCALA_HOME/bin
+
+# hadoop
+export HADOOP_HOME=/usr/local/hadoop/hadoop-2.10.0
+export HADOOP_CONFIG_HOME=$HADOOP_HOME/etc/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+
+export PATH=$PATH:$HADOOP_HOME/sbin
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
+
+source ~/.bashrc
+
+cd $HADOOP_HOME;mkdir tmp;mkdir namenode;mkdir datanode;cd $HADOOP_CONFIG_HOME/
+
+core-site.xml
+<configuration>
+    <property>
+            <name>hadoop.tmp.dir</name>
+            <value>/usr/local/hadoop/hadoop-2.10.0/tmp</value>
+            <description>A base for other temporary directories.</description>
+    </property>
+
+    <property>
+            <name>fs.default.name</name>
+            <value>hdfs://master:9000</value>
+            <final>true</final>
+            <description>The name of the default file system. 
+            A URI whose scheme and authority determine the 
+            FileSystem implementation. The uri's scheme 
+            determines the config property (fs.SCHEME.impl) 
+            naming the FileSystem implementation class. The 
+            uri's authority is used to determine the host,
+            port, etc. for a filesystem.        
+            </description>
+    </property>
+</configuration>
+
+hdfs-site.xml
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+        <final>true</final>
+        <description>Default block replication.
+        The actual number of replications can be specified when the file is created.
+        The default is used if replication is not specified in create time.
+        </description>
+    </property>
+
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>/usr/local/hadoop/hadoop-2.10.0/namenode</value>
+        <final>true</final>
+    </property>
+
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>/usr/local/hadoop/hadoop-2.10.0/datanode</value>
+        <final>true</final>
+    </property>
+</configuration>
+
+mapred-site.xml
+<configuration>
+    <property>
+        <name>mapred.job.tracker</name>
+        <value>master:9001</value>
+        <description>The host and port that the MapReduce job tracker runs
+        at.  If "local", then jobs are run in-process as a single map
+        and reduce task.
+        </description>
+    </property>
+</configuration>
+
+yarn-site.xml
+<configuration>
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+        <description>Whether virtual memory limits will be enforced for containers</description>
+    </property>
+</configuration>
+
+hadoop namenode -format
+
+#~/spark.env.sh中添加
+export SCALA_HOME=/usr/local/scala/scala-2.12.3
+export JAVA_HOME=/usr/local/java/jdk1.8.0_231
+export HADOOP_HOME=/usr/local/hadoop/hadoop-2.10.0
+export HADOOP_CONFIG_DIR=$HADOOP_HOME/etc/hadoop
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
+SPARK_MASTER_IP=master
+SPARK_LOCAL_DIR=/usr/local/spark/spark-2.4.5-bin-without-hadoop
+SPACK_DRIVER_MEMORY=1G
+#~/slaves中添加
+slave01
+slave02
+
+exit
+
+docker commit -m "centos7 with spark 2.4.7 hadoop 2.10.0" test centos7:with-spark-hadoop sha256:314265b8d9c9327d8512c651fdd70bdc1051050f8b29d9f2bcc65ed58997d4d9
+docker images
+
+docker run -itd -P -p 50070:50070 -p 8088:8088 -p 8080:8080 --privileged --name master -h master --add-host slave01:172.17.0.7 --add-host slave02:172.17.0.8 centos7:with-spark-hadoop /usr/sbin/init
+docker run -itd -P --privileged --name slave01 -h slave01 --add-host master:172.17.0.6 --add-host slave02:172.17.0.8 centos7:with-spark-hadoop /usr/sbin/init
+docker run -itd -P --privileged --name slave02 -h slave02 --add-host master:172.17.0.6 --add-host slave01:172.17.0.7 centos7:with-spark-hadoop /usr/sbin/init
+
+# 启动hadoop
+cd /usr/local/hadoop/hadoop-2.10.0/sbin/;sh start-all.sh 
+
+jps
+
+#启动spark
+cd /usr/local/spark/spark-2.4.7-bin-without-hadoop/sbin; sh start-all.sh
+
+vim test.txt
+hdfs dfs -put test.txt /
+hdfs dfs -ls /
+cd /usr/local/hadoop/hadoop-2.10.0/share/hadoop/mapreduce/
+
+hadoop jar hadoop-mapreduce-examples-2.10.0.jar wordcount /test.txt /out
+hdfs dfs -ls /out
+hdfs dfs -cat /out/part-r-00000
+
+```
