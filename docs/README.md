@@ -35,6 +35,8 @@ docker exec -it master spark-shell --executor-memory 512M --total-executor-cores
 sc.textFile("hdfs://namenode:8020/input/GoneWiththeWind.txt").flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _).sortBy(_._2,false).take(10).foreach(println)
 
 wget https://raw.githubusercontent.com/zq2599/blog_demos/master/sparkdockercomposefiles/sparkwordcount-1.0-SNAPSHOT.jar
+mv sparkwordcount-1.0-SNAPSHOT.jar jars/
+
 docker exec -it master spark-submit \
 --class com.bolingcavalry.sparkwordcount.WordCount \
 --executor-memory 512m \
