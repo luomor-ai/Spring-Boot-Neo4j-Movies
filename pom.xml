@@ -11,7 +11,7 @@
     <groupId>com.appleyk</groupId>
     <artifactId>Spring-Neo4j-Movie</artifactId>
     <version>0.1.2-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <description>SpringBoot集成Neo4j,结合Spark朴素贝叶斯分类器实现知识图谱的电影问答功能</description>
 
     <properties>
