@@ -49,6 +49,9 @@ match(n:Person)-[:actedin]->(m:Movie) where n.name='章子怡' return m.title
 --  删除所有的节点及关系
 MATCH (n)-[r]-(b)
 DELETE n,r,b
+
+unzip data-for-1.7.5.zip
+cp -r data/* /home/robot/HanLP/data
 ```
 
 ```shell
