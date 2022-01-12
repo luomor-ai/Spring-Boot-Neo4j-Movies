@@ -59,6 +59,7 @@ dictionary/  model/       question/    README.url   version.txt
 
 http://10.2.100.2:8001/rest/appleyk/question/query?question=test
 
+docker cp target/Spring-Neo4j-Movie-exec.jar master:
 docker exec -it master java -jar Spring-Neo4j-Movie-exec.jar
 ```
 
