@@ -70,6 +70,9 @@ cd docker
 sudo docker-compose build
 sudo docker-compose up -d movies
 sudo docker-compose logs -f movies
+
+apt-get update
+apt-get install iputils-ping
 ```
 
 ```shell

@@ -637,3 +637,44 @@ org.neo4j.driver.v1.exceptions.ServiceUnavailableException: Connection to the da
         at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
         at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
         at java.lang.Thread.run(Thread.java:748)
+
+
+movies             | 原始句子：test
+movies             | ========HanLP开始分词========
+movies             | test/nx
+movies             | ========HanLP分词结束========
+movies             | 句子抽象化结果：x
+movies             | 2022-01-12 19:43:23,049 WARN (BLAS.java:61)- Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+movies             | 2022-01-12 19:43:23,049 WARN (BLAS.java:61)- Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+movies             | the model index is 3.0
+movies             | ============ 问题模板分类概率 =============
+movies             | 问题模板分类【0】概率：0.08197
+movies             | 问题模板分类【1】概率：0.07377
+movies             | 问题模板分类【2】概率：0.06557
+movies             | 问题模板分类【3】概率：0.10656
+movies             | 问题模板分类【4】概率：0.05738
+movies             | 问题模板分类【5】概率：0.10656
+movies             | 问题模板分类【6】概率：0.06557
+movies             | 问题模板分类【7】概率：0.07377
+movies             | 问题模板分类【8】概率：0.05738
+movies             | 问题模板分类【9】概率：0.05738
+movies             | 问题模板分类【10】概率：0.05738
+movies             | 问题模板分类【11】概率：0.04918
+movies             | 问题模板分类【12】概率：0.04098
+movies             | 问题模板分类【13】概率：0.10656
+movies             | ============ 问题模板分类概率 =============
+movies             | 句子套用模板结果：nm 简介
+movies             | 原始句子替换成系统可识别的结果：nm 简介
+movies             | 2022-01-12 19:43:23,944 INFO (JULogger.java:48)- Direct driver instance 1924132703 created for server address neo4j:7687
+movies             | 2022-01-12 19:43:29,377 INFO (JULogger.java:48)- Closing connection pool towards neo4j:7687
+movies             | 2022-01-12 19:43:31,602 ERROR (DirectJDKLog.java:175)- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataAccessResourceFailureException: Could not create driver instance; nested exception is org.neo4j.ogm.exception.ConnectionException: Could not create driver instance] with root cause
+movies             | org.neo4j.driver.internal.shaded.io.netty.channel.ConnectTimeoutException: connection timed out: neo4j/156.237.200.98:7687
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:267)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.PromiseTask$RunnableAdapter.call(PromiseTask.java:38)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:125)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+movies             |    at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+movies             |    at java.lang.Thread.run(Thread.java:748)
