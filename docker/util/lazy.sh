@@ -26,15 +26,15 @@ fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 cd $DIR/../.. || exit 2
-FRIDAY_HOME=$PWD
-echo "FRIDAY_HOME $FRIDAY_HOME"
+MOVIES_HOME=$PWD
+echo "MOVIES_HOME $MOVIES_HOME"
 
 # 项目打包
-cd $FRIDAY_HOME || exit 2
+cd $MOVIES_HOME || exit 2
 ./docker/util/package.sh
 
 # 上传云服务器
-cd $FRIDAY_HOME || exit 2
+cd $MOVIES_HOME || exit 2
 scp -i $ID_RSA -r  ./docker $REMOTE:/home/ubuntu/
 
 # 远程登录云服务器并执行reset脚本

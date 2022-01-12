@@ -1,12 +1,12 @@
 #!/bin/bash
 
-FRIDAY_HOME=/home/movies/git/Spring-Boot-Neo4j-Movies
-echo "FRIDAY_HOME $FRIDAY_HOME"
-cd $FRIDAY_HOME
+MOVIES_HOME=/home/movies/git/Spring-Boot-Neo4j-Movies
+echo "MOVIES_HOME $MOVIES_HOME"
+cd $MOVIES_HOME
 
 sudo -u movies git pull
 
-cd $FRIDAY_HOME/docker
+cd $MOVIES_HOME/docker
 
 # create user 'movies'@'%' identified by 'friday123456';
 # grant all privileges on movies.* to 'movies'@'%';
