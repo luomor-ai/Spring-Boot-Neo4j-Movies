@@ -69,6 +69,7 @@ cp -f docker/movies/Dockerfile docker/movies-fe/Dockerfile
 cd docker
 sudo docker-compose build
 sudo docker-compose up -d movies
+sudo docker-compose logs -f movies
 ```
 
 ```shell
