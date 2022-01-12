@@ -73,6 +73,8 @@ sudo docker-compose logs -f movies
 
 apt-get update
 apt-get install iputils-ping
+
+sudo docker network create --subnet=172.10.0.0/16 condor
 ```
 
 ```shell

@@ -10,6 +10,8 @@ services:
       - CLUSTER_NAME=test
     env_file:
       - ./hadoop.env
+    networks:
+      - condor
     ports:
       - 50070:50070
 
@@ -20,6 +22,8 @@ services:
       - namenode
       - datanode1
       - datanode2
+    networks:
+      - condor
     env_file:
       - ./hadoop.env
 
@@ -32,6 +36,8 @@ services:
       - datanode2
     volumes:
       - hadoop_historyserver:/hadoop/yarn/timeline
+    networks:
+      - condor
     env_file:
       - ./hadoop.env
 
@@ -42,6 +48,8 @@ services:
       - namenode
       - datanode1
       - datanode2
+    networks:
+      - condor
     env_file:
       - ./hadoop.env
 
@@ -52,6 +60,8 @@ services:
       - namenode
     volumes:
       - hadoop_datanode1:/hadoop/dfs/data
+    networks:
+      - condor
     env_file:
       - ./hadoop.env
 
@@ -62,6 +72,8 @@ services:
       - namenode
     volumes:
       - hadoop_datanode2:/hadoop/dfs/data
+    networks:
+      - condor
     env_file:
       - ./hadoop.env
 
@@ -72,6 +84,8 @@ services:
       - namenode
     volumes:
       - hadoop_datanode3:/hadoop/dfs/data
+    networks:
+      - condor
     env_file:
       - ./hadoop.env
 
@@ -99,6 +113,8 @@ services:
       - 6066:6066
       - 7077:7077
       - 8021:8080
+    networks:
+      - condor
     volumes:
       - ./conf/master:/conf
       - ./data:/tmp/data
@@ -126,6 +142,8 @@ services:
       - 8881
     ports:
       - 8022:8081
+    networks:
+      - condor
     volumes:
       - ./conf/worker:/conf
       - ./data:/tmp/data
@@ -142,6 +160,8 @@ services:
       - ./movies/spark-warehouse:/spark-warehouse
       - /etc/localtime:/etc/localtime
       - /home/robot/HanLP/data:/home/robot/HanLP/data
+    networks:
+      - condor
     depends_on:
       - master
     restart: always
@@ -152,3 +172,7 @@ volumes:
   hadoop_datanode2:
   hadoop_datanode3:
   hadoop_historyserver:
+
+networks:
+  condor:
+    external: true
