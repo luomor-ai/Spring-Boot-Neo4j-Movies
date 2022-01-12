@@ -9,6 +9,7 @@ mkdir -p /home/robot/HanLP/data/question
 sudo chmod -R 777 /home/robot
 
 cp src/main/resources/statics/data（csv）/template/* /home/robot/HanLP/data/question/
+cp src/main/resources/statics/data（csv）/custom/* /home/robot/HanLP/data/dictionary/custom/
 
 cd git/docker-neo4j/mnt
 cp -r ../../Spring-Boot-Neo4j-Movies/src/main/resources/statics/data（csv）/csv/* .
