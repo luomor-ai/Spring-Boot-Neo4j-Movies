@@ -52,6 +52,9 @@ DELETE n,r,b
 
 unzip data-for-1.7.5.zip
 cp -r data/* /home/robot/HanLP/data
+
+ls /home/robot/HanLP/data/
+dictionary/  model/       question/    README.url   version.txt 
 ```
 
 ```shell
