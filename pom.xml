@@ -59,11 +59,11 @@
         </dependency>
 
         <!-- neo4j 4.1.4-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
             <version>4.1.4</version>
-        </dependency>
+        </dependency>-->
 
         <!-- 中文分詞器内置数据包的Portable 最新版 -->
         <!-- http://mvnrepository.com/artifact/com.hankcs/hanlp -->
