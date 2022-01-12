@@ -56,6 +56,8 @@ cp -r data/* /home/robot/HanLP/data
 
 ls /home/robot/HanLP/data/
 dictionary/  model/       question/    README.url   version.txt 
+
+http://10.2.100.2:8001/rest/appleyk/question/query?question=test
 ```
 
 ```shell
