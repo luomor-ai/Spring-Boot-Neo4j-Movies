@@ -1,4 +1,17 @@
 ```shell
+mvn package
+java -jar target/Spring-Neo4j-Movie-exec.jar
+
+sudo mkdir -p /home/robot/HanLP/data
+sudo chmod -R 777 /home/robot
+
+mkdir -p /home/robot/HanLP/data/question
+sudo chmod -R 777 /home/robot
+
+cp src/main/resources/statics/data（csv）/template/* /home/robot/HanLP/data/question/
+```
+
+```shell
 sudo docker-compose build
 sudo docker-compose down
 sudo docker-compose up
