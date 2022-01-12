@@ -130,6 +130,22 @@ services:
       - ./conf/worker:/conf
       - ./data:/tmp/data
 
+  movies:
+    build:
+      context: movies-fe
+      dockerfile: Dockerfile
+    container_name: movies
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./movies/logs:/logs
+      - ./movies/spark-warehouse:/spark-warehouse
+      - /etc/localtime:/etc/localtime
+      - /home/robot/HanLP/data:/home/robot/HanLP/data
+    depends_on:
+      - master
+    restart: always
+
 volumes:
   hadoop_namenode:
   hadoop_datanode1:
