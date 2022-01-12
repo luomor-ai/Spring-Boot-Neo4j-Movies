@@ -17,7 +17,7 @@ public class BayesTest {
 	public void TestA(){
 		
 		/**本地模式，*表示启用多个线程并行计算*/
-		SparkConf conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("spark://localhost:7077");
+		SparkConf conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("spark://10.2.100.2:7077");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
 		/**

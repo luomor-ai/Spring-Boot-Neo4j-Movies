@@ -250,7 +250,7 @@ public class CoreProcessor {
          */
         SparkConf conf = null;
         //conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("local[*]");
-        conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("spark://localhost:7077");
+        conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("spark://10.2.100.2:7077");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         /**
