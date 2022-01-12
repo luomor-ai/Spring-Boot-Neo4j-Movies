@@ -61,6 +61,10 @@ http://10.2.100.2:8001/rest/appleyk/question/query?question=test
 
 docker cp target/Spring-Neo4j-Movie-exec.jar master:/usr/spark-2.3.0
 docker exec -it master java -jar Spring-Neo4j-Movie-exec.jar
+
+cp -f target/Spring-Neo4j-Movie-exec.jar docker/movies-fe
+cp -f docker/movies/application.properties docker/movies-fe/application.properties
+cp -f docker/movies/Dockerfile docker/movies-fe/Dockerfile
 ```
 
 ```shell
