@@ -607,3 +607,33 @@ java -jar target/Spring-Neo4j-Movie-exec.jar
 2022-01-12 17:39:02,814 INFO (Logging.scala:54)- Adding task set 0.0 with 1 tasks
 2022-01-12 17:39:17,831 WARN (Logging.scala:66)- Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
 2022-01-12 17:39:32,830 WARN (Logging.scala:66)- Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+
+2022-01-12 19:34:47,335 ERROR (DirectJDKLog.java:175)- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataAccessResourceFailureException: Could not create driver instance; nested exception is org.neo4j.ogm.exception.ConnectionException: Could not create driver instance] with root cause
+org.neo4j.driver.v1.exceptions.ServiceUnavailableException: Connection to the database terminated. This can happen due to network instabilities, or due to restarts of the database
+        at org.neo4j.driver.internal.util.ErrorUtil.newConnectionTerminatedError(ErrorUtil.java:45)
+        at org.neo4j.driver.internal.async.HandshakeHandler.channelInactive(HandshakeHandler.java:85)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224)
+        at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:377)
+        at org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:342)
+        at org.neo4j.driver.internal.shaded.io.netty.handler.ssl.SslHandler.channelInactive(SslHandler.java:1010)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.ChannelInboundHandlerAdapter.channelInactive(ChannelInboundHandlerAdapter.java:75)
+        at org.neo4j.driver.internal.shaded.io.netty.handler.timeout.IdleStateHandler.channelInactive(IdleStateHandler.java:277)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:224)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1409)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:245)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:231)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:927)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.AbstractChannel$AbstractUnsafe$8.run(AbstractChannel.java:822)
+        at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+        at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+        at org.neo4j.driver.internal.shaded.io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+        at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+        at org.neo4j.driver.internal.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.lang.Thread.run(Thread.java:748)
