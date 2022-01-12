@@ -9,6 +9,12 @@ mkdir -p /home/robot/HanLP/data/question
 sudo chmod -R 777 /home/robot
 
 cp src/main/resources/statics/data（csv）/template/* /home/robot/HanLP/data/question/
+
+cd git/docker-neo4j/mnt
+cp -r ../../Spring-Boot-Neo4j-Movies/src/main/resources/statics/data（csv）/csv/* .
+
+LOAD CSV WITH HEADERS  FROM "file:///genre.csv" AS line
+MERGE (p:Genre{gid:toInteger(line.gid),name:line.gname})
 ```
 
 ```shell

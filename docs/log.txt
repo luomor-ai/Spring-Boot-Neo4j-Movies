@@ -484,3 +484,6 @@ Caused by: java.lang.IllegalArgumentException: 核心词典/home/robot/HanLP/dat
 2022-01-12 12:18:58,947 INFO (Logging.scala:54)- Successfully stopped SparkContext
 2022-01-12 12:18:58,947 INFO (Logging.scala:54)- Shutdown hook called
 2022-01-12 12:18:58,948 INFO (Logging.scala:54)- Deleting directory /tmp/spark-ef101fad-5eb4-4c45-88eb-b07c2ce6631e
+
+Neo.ClientError.Statement.ExternalResourceFailed
+Couldn't load the external resource at: file:/genre.csv
