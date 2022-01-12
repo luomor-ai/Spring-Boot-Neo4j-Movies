@@ -73,7 +73,7 @@ public class HanLPTest {
     @Test
     public void TestRDD(){
 
-        SparkConf conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("local[*]");
+        SparkConf conf = new SparkConf().setAppName("NaiveBayesTest").setMaster("spark://localhost:7077");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
 
