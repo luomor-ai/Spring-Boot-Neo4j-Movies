@@ -5,15 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-@SpringBootApplication // same as @Configuration @EnableAutoConfiguration// @ComponentScan
-public class App extends SpringBootServletInitializer {
+@SpringBootApplication(scanBasePackages = {"com.appleyk"})
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(App.class, args);
-	}
-
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(App.class);
+		SpringApplication.run(Application.class, args);
 	}
 }
