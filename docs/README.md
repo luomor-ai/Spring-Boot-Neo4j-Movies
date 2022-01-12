@@ -1,5 +1,5 @@
 ```shell
-mvn package
+mvn clean package
 java -jar target/Spring-Neo4j-Movie-exec.jar
 
 sudo mkdir -p /home/robot/HanLP/data
