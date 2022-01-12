@@ -487,3 +487,123 @@ Caused by: java.lang.IllegalArgumentException: 核心词典/home/robot/HanLP/dat
 
 Neo.ClientError.Statement.ExternalResourceFailed
 Couldn't load the external resource at: file:/genre.csv
+
+java -jar target/Spring-Neo4j-Movie-exec.jar
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.2.RELEASE)
+
+2022-01-12 17:38:54,132 INFO (StartupInfoLogger.java:50)- Starting Application v0.1.2-SNAPSHOT on fe1.web.bj1.chinatower.com with PID 3383948 (/home/bj/git/Spring-Boot-Neo4j-Movies/target/Spring-Neo4j-Movie-exec.jar started by bj in /home/bj/git/Spring-Boot-Neo4j-Movies)
+2022-01-12 17:38:54,136 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2022-01-12 17:38:54,763 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2022-01-12 17:38:54,835 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 64ms. Found 4 repository interfaces.
+2022-01-12 17:38:55,138 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cf470a97] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-01-12 17:38:55,536 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8001 (http)
+2022-01-12 17:38:55,555 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8001"]
+2022-01-12 17:38:55,567 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2022-01-12 17:38:55,567 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.14]
+2022-01-12 17:38:55,670 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2022-01-12 17:38:55,743 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2022-01-12 17:38:55,744 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 1568 ms
+2022-01-12 17:38:56,639 INFO (DomainInfo.java:154)- Starting Post-processing phase
+2022-01-12 17:38:56,639 INFO (DomainInfo.java:120)- Building annotation class map
+2022-01-12 17:38:56,639 INFO (DomainInfo.java:133)- Building interface class map for 23 classes
+2022-01-12 17:38:56,651 INFO (DomainInfo.java:210)- Post-processing complete
+2022-01-12 17:38:56,762 INFO (Neo4jMappingContext.java:130)- No class information found in OGM meta-data for class org.apache.spark.mllib.classification.NaiveBayesModel so treating as simple type for SD Commons
+2022-01-12 17:38:56,780 INFO (Neo4jMappingContext.java:66)- Neo4jMappingContext initialisation completed
+2022-01-12 17:38:57,289 INFO (Logging.scala:54)- Running Spark version 2.3.0
+2022-01-12 17:38:57,459 WARN (NativeCodeLoader.java:62)- Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2022-01-12 17:38:57,547 INFO (Logging.scala:54)- Submitted application: NaiveBayesTest
+2022-01-12 17:38:57,608 INFO (Logging.scala:54)- Changing view acls to: bj
+2022-01-12 17:38:57,609 INFO (Logging.scala:54)- Changing modify acls to: bj
+2022-01-12 17:38:57,610 INFO (Logging.scala:54)- Changing view acls groups to:
+2022-01-12 17:38:57,611 INFO (Logging.scala:54)- Changing modify acls groups to:
+2022-01-12 17:38:57,611 INFO (Logging.scala:54)- SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(bj); groups with view permissions: Set(); users  with modify permissions: Set(bj); groups with modify permissions: Set()
+2022-01-12 17:38:57,871 INFO (Logging.scala:54)- Successfully started service 'sparkDriver' on port 11197.
+2022-01-12 17:38:57,892 INFO (Logging.scala:54)- Registering MapOutputTracker
+2022-01-12 17:38:57,911 INFO (Logging.scala:54)- Registering BlockManagerMaster
+2022-01-12 17:38:57,914 INFO (Logging.scala:54)- Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+2022-01-12 17:38:57,914 INFO (Logging.scala:54)- BlockManagerMasterEndpoint up
+2022-01-12 17:38:57,923 INFO (Logging.scala:54)- Created local directory at /tmp/blockmgr-e0bb06b4-5cc0-4ef4-8978-c1b40c96095c
+2022-01-12 17:38:57,944 INFO (Logging.scala:54)- MemoryStore started with capacity 8.1 GB
+2022-01-12 17:38:57,959 INFO (Logging.scala:54)- Registering OutputCommitCoordinator
+2022-01-12 17:38:58,020 INFO (Log.java:192)- Logging initialized @4926ms
+2022-01-12 17:38:58,069 INFO (Server.java:346)- jetty-9.3.z-SNAPSHOT
+2022-01-12 17:38:58,085 INFO (Server.java:414)- Started @4990ms
+2022-01-12 17:38:58,098 WARN (Logging.scala:66)- Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+2022-01-12 17:38:58,104 INFO (AbstractConnector.java:278)- Started ServerConnector@7a419da4{HTTP/1.1,[http/1.1]}{0.0.0.0:4041}
+2022-01-12 17:38:58,104 INFO (Logging.scala:54)- Successfully started service 'SparkUI' on port 4041.
+2022-01-12 17:38:58,123 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@73700b80{/jobs,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,124 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@49c7b90e{/jobs/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,124 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@10d307f1{/jobs/job,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,125 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@3e84448c{/jobs/job/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,126 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@4a7f959b{/stages,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,126 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@429bffaa{/stages/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,127 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@5403f35f{/stages/stage,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,128 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@63a12c68{/stages/stage/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,128 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@28f3b248{/stages/pool,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,129 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@1b1426f4{/stages/pool/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,129 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@32b260fa{/storage,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,130 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@581ac8a8{/storage/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,130 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@6d4e5011{/storage/rdd,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,131 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@57d7f8ca{/storage/rdd/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,132 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@76c3e77a{/environment,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,132 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@78123e82{/environment/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,133 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@67c33749{/executors,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,133 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@fba92d3{/executors/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,134 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@662b4c69{/executors/threadDump,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,134 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@fa49800{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,141 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@71238fc2{/static,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,142 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@2a54a73f{/,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,143 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@16a0ee18{/api,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,143 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@505fc5a4{/jobs/job/kill,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,144 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@5fbdfdcf{/stages/stage/kill,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,146 INFO (Logging.scala:54)- Bound SparkUI to 0.0.0.0, and started at http://fe1.web.bj1.chinatower.com:4041
+2022-01-12 17:38:58,266 INFO (Logging.scala:54)- Connecting to master spark://localhost:7077...
+2022-01-12 17:38:58,321 INFO (TransportClientFactory.java:267)- Successfully created connection to localhost/127.0.0.1:7077 after 39 ms (0 ms spent in bootstraps)
+2022-01-12 17:38:58,408 INFO (Logging.scala:54)- Connected to Spark cluster with app ID app-20220112093858-0007
+2022-01-12 17:38:58,411 INFO (Logging.scala:54)- Executor added: app-20220112093858-0007/0 on worker-20220111113013-172.18.0.17-8881 (172.18.0.17:8881) with 2 core(s)
+2022-01-12 17:38:58,412 INFO (Logging.scala:54)- Granted executor ID app-20220112093858-0007/0 on hostPort 172.18.0.17:8881 with 2 core(s), 1024.0 MB RAM
+2022-01-12 17:38:58,420 INFO (Logging.scala:54)- Executor updated: app-20220112093858-0007/0 is now RUNNING
+2022-01-12 17:38:58,420 INFO (Logging.scala:54)- Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 26865.
+2022-01-12 17:38:58,421 INFO (Logging.scala:54)- Server created on fe1.web.bj1.chinatower.com:26865
+2022-01-12 17:38:58,422 INFO (Logging.scala:54)- Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2022-01-12 17:38:58,424 INFO (Logging.scala:54)- Registering BlockManager BlockManagerId(driver, fe1.web.bj1.chinatower.com, 26865, None)
+2022-01-12 17:38:58,428 INFO (Logging.scala:54)- Registering block manager fe1.web.bj1.chinatower.com:26865 with 8.1 GB RAM, BlockManagerId(driver, fe1.web.bj1.chinatower.com, 26865, None)
+2022-01-12 17:38:58,430 INFO (Logging.scala:54)- Registered BlockManager BlockManagerId(driver, fe1.web.bj1.chinatower.com, 26865, None)
+2022-01-12 17:38:58,431 INFO (Logging.scala:54)- Initialized BlockManager: BlockManagerId(driver, fe1.web.bj1.chinatower.com, 26865, None)
+2022-01-12 17:38:58,443 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@611889f4{/metrics/json,null,AVAILABLE,@Spark}
+2022-01-12 17:38:58,456 INFO (Logging.scala:54)- SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+2022-01-12 17:39:00,966 INFO (Logging.scala:54)- Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir ('file:/home/bj/git/Spring-Boot-Neo4j-Movies/spark-warehouse/').
+2022-01-12 17:39:00,966 INFO (Logging.scala:54)- Warehouse path is 'file:/home/bj/git/Spring-Boot-Neo4j-Movies/spark-warehouse/'.
+2022-01-12 17:39:00,975 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@129b4fe2{/SQL,null,AVAILABLE,@Spark}
+2022-01-12 17:39:00,976 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@5af3a0f{/SQL/json,null,AVAILABLE,@Spark}
+2022-01-12 17:39:00,976 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@24b6b8f6{/SQL/execution,null,AVAILABLE,@Spark}
+2022-01-12 17:39:00,977 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@72cf2de5{/SQL/execution/json,null,AVAILABLE,@Spark}
+2022-01-12 17:39:00,978 INFO (ContextHandler.java:781)- Started o.s.j.s.ServletContextHandler@4ee37ca3{/static/sql,null,AVAILABLE,@Spark}
+2022-01-12 17:39:01,425 INFO (Logging.scala:54)- Registered StateStoreCoordinator endpoint
+2022-01-12 17:39:01,502 WARN (Logging.scala:66)- URL.setURLStreamHandlerFactory failed to set FsUrlStreamHandlerFactory
+2022-01-12 17:39:02,438 INFO (Logging.scala:54)- Code generated in 297.549271 ms
+2022-01-12 17:39:02,482 INFO (Logging.scala:54)- NaiveBayes-nb_944d8bd4ae02-691863815-1: training: numPartitions=2 storageLevel=StorageLevel(1 replicas)
+2022-01-12 17:39:02,510 INFO (Logging.scala:54)- NaiveBayes-nb_944d8bd4ae02-691863815-1: {"modelType":"multinomial","smoothing":1.0}
+2022-01-12 17:39:02,602 INFO (Logging.scala:54)- Code generated in 11.374895 ms
+2022-01-12 17:39:02,657 INFO (Logging.scala:54)- Code generated in 39.319747 ms
+2022-01-12 17:39:02,675 INFO (Logging.scala:54)- Starting job: head at NaiveBayes.scala:153
+2022-01-12 17:39:02,689 INFO (Logging.scala:54)- Got job 0 (head at NaiveBayes.scala:153) with 1 output partitions
+2022-01-12 17:39:02,690 INFO (Logging.scala:54)- Final stage: ResultStage 0 (head at NaiveBayes.scala:153)
+2022-01-12 17:39:02,690 INFO (Logging.scala:54)- Parents of final stage: List()
+2022-01-12 17:39:02,692 INFO (Logging.scala:54)- Missing parents: List()
+2022-01-12 17:39:02,696 INFO (Logging.scala:54)- Submitting ResultStage 0 (MapPartitionsRDD[9] at head at NaiveBayes.scala:153), which has no missing parents
+2022-01-12 17:39:02,761 INFO (Logging.scala:54)- Block broadcast_0 stored as values in memory (estimated size 23.3 KB, free 8.1 GB)
+2022-01-12 17:39:02,796 INFO (Logging.scala:54)- Block broadcast_0_piece0 stored as bytes in memory (estimated size 6.9 KB, free 8.1 GB)
+2022-01-12 17:39:02,799 INFO (Logging.scala:54)- Added broadcast_0_piece0 in memory on fe1.web.bj1.chinatower.com:26865 (size: 6.9 KB, free: 8.1 GB)
+2022-01-12 17:39:02,802 INFO (Logging.scala:54)- Created broadcast 0 from broadcast at DAGScheduler.scala:1039
+2022-01-12 17:39:02,813 INFO (Logging.scala:54)- Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[9] at head at NaiveBayes.scala:153) (first 15 tasks are for partitions Vector(0))
+2022-01-12 17:39:02,814 INFO (Logging.scala:54)- Adding task set 0.0 with 1 tasks
+2022-01-12 17:39:17,831 WARN (Logging.scala:66)- Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+2022-01-12 17:39:32,830 WARN (Logging.scala:66)- Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
