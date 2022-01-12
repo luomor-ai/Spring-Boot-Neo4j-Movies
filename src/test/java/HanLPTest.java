@@ -62,7 +62,7 @@ public class HanLPTest {
 
     @Test
     public void TestC() throws Exception{
-        CoreProcessor query = new CoreProcessor("D:/HanLP/data");
+        CoreProcessor query = new CoreProcessor("/home/robot/HanLP/data");
         String[] questionArr = new String[] {"卧虎藏龙的分数是多少"};
         for(String que: questionArr){
             List<String> question = query.analysis(que);

@@ -18,7 +18,7 @@
         <!-- 使用Java8，嘗試使用新特新【stream和lambda】 -->
         <java.version>1.8</java.version>
         <janino.version>3.0.8</janino.version>
-        <skipTests>true</skipTests>
+        <skipTests>false</skipTests>
     </properties>
 
     <dependencies>
