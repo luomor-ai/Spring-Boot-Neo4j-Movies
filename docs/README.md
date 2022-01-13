@@ -77,6 +77,8 @@ apt-get update
 apt-get install iputils-ping
 
 sudo docker network create --subnet=172.10.0.0/16 condor
+
+http://10.2.100.2:8010/
 ```
 
 ```shell
@@ -327,6 +329,7 @@ docker spark
 docker-compose spark
 neo4j 导入csv
 neo4j Couldn't load the external resource
+docker hive
 ```
 
 ```
