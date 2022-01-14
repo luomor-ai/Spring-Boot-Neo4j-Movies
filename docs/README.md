@@ -333,6 +333,8 @@ docker hive
 docker spark hive
 
 https://bambrow.com/20210625-docker-hadoop-1/
+
+hadoop-config hive-config spark-config
 ```
 
 ```
